@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول اختبارات Med والمذاكرة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- الشريط العلوي (الاسم والعبارات التحفيزية) -->
+    <header class="motivational-header">
+        <div class="container header-container">
+            <div class="developer-name">Eng: Ma'an</div>
+            <div class="quote-wrapper">
+                <p id="quote-text">"النجاح هو مجموع مجهودات صغيرة تتكرر يوماً بعد يوم."</p>
+                <button id="new-quote-btn" title="عبارة تحفيزية جديدة">↻ عبارة أخرى</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="main-title">📚 منظم اختبارات Med وخطة المذاكرة</h1>
+
+        <!-- القسم الأول: جدول اختبارات Med -->
+        <section class="card">
+            <h2>📅 جدول اختبارات Med</h2>
+            <form id="exam-form" class="form-grid">
+                <input type="text" id="exam-subject" placeholder="اسم المادة (مثال: المنطق الرقمي)" required>
+                <input type="date" id="exam-date" required>
+                <input type="time" id="exam-time" required>
+                <input type="number" id="exam-chapters" min="1" placeholder="عدد الشابترات" required>
+                <input type="number" id="exam-slides" min="1" placeholder="مجموع السلايدات" required>
+                <button type="submit" class="btn-primary">إضافة اختبار</button>
+            </form>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المادة</th>
+                            <th>التاريخ والوقت</th>
+                            <th>الشابترات</th>
+                            <th>مجموع السلايدات</th>
+                            <th>متوسط السلايدات/شابتر</th>
+                            <th>الوقت المتبقي</th>
+                            <th>إجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exam-table-body">
+                        <!-- يتم تعبئة البيانات هنا عبر JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- القسم الثاني: جدول المذاكرة -->
+        <section class="card">
+            <h2>📖 خطة وجدول المذاكرة</h2>
+            <form id="study-form" class="form-grid">
+                <select id="study-subject" required>
+                    <option value="" disabled selected>اختر المادة من جدول الاختبارات...</option>
+                </select>
+                <div class="input-group">
+                    <label for="study-start">تاريخ البداية:</label>
+                    <input type="date" id="study-start" required>
+                </div>
+                <div class="input-group">
+                    <label for="study-end">تاريخ النهاية:</label>
+                    <input type="date" id="study-end" required>
+                </div>
+                <input type="number" id="study-hours" min="0.5" max="24" step="0.5" placeholder="ساعات الدراسة يومياً" required>
+                <button type="submit" class="btn-secondary">إضافة للخطة</button>
+            </form>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المادة</th>
+                            <th>تاريخ البداية</th>
+                            <th>تاريخ النهاية</th>
+                            <th>عدد الأيام</th>
+                            <th>الهدف اليومي</th>
+                            <th>إجمالي الساعات</th>
+                            <th>إجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="study-table-body">
+                        <!-- يتم تعبئة البيانات هنا عبر JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر (الآية القرآنية ومعلومات الاتصال) -->
+    <footer class="quran-footer">
+        <div class="container">
+            <p class="ayah">﴿ وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ * وَأَنَّ سَعْيَهُ سَوْفَ يُرَىٰ ﴾</p>
+            <span class="surah">سورة النجم - الآيتان 39-40</span>
+            <div class="contact-info">
+                <span>📱 الجوال: <dir>0992328101</dir></span>
+                <span>•</span>
+                <span>✉️ البريد: <a href="mailto:maanabokhashreef@gmail.com">maanabokhashreef@gmail.com</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

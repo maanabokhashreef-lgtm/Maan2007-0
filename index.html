@@ -1,168 +1,53 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منظم جدول دراسي (Med~Final~Study)</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <title>منظم جدول دراسي | Med~Final~Study</title>
+    <meta name="description" content="منظم جدول دراسي ذكي لطلاب الجامعة الدولية الخاصة للعلوم والتكنولوجيا (IUST): خوارزمية توليد خطط مذاكرة موزونة، عد تنازلي حي، مؤقت بومودورو، تقويم شامل بمراجعات متباعدة، إحصائيات ذكية، إنجازات تحفيزية، وضع داكن — كل بياناتك محفوظة على جهازك.">
+    <meta name="author" content="Eng: Ma'an Majed">
+    <meta name="keywords" content="منظم جدول دراسي, مذاكرة, امتحانات, عد تنازلي, مؤقت مذاكرة, بومودورو, مراجعة متباعدة, طلاب جامعة, IUST, Med Final Study">
+    <meta name="theme-color" content="#065f46">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="منظم جدول دراسي | Med~Final~Study">
+    <meta property="og:description" content="خطة ذكية بضغطة واحدة، مؤقت بومودورو، تقويم مراجعات متباعدة، وإحصائيات دقيقة — بتجربة زمردي-ذهبية فنية.">
+    <meta property="og:locale" content="ar_AR">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Alexandria:wght@300;400;500;600;700&family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- الشريط العلوي: الاسم، العبارات التحفيزية، وشعار IUST في اليسار -->
-    <header class="motivational-header">
-        <div class="container header-container">
-            <div class="top-bar-info">
-                <span class="developer-name">Eng: Ma'an Majed</span>
-                <button type="button" id="edit-profile-btn" class="btn-outline-light hidden">تعديل بيانات الطالب</button>
-            </div>
-
-            <div class="quote-wrapper">
-                <p id="quote-text">"النجاح هو مجموع مجهودات صغيرة تتكرر يوماً بعد يوم."</p>
-                <button type="button" id="new-quote-btn" title="عبارة تحفيزية جديدة">↻ عبارة أخرى</button>
-            </div>
-
-            <div class="left-logo-box" title="الجامعة الدولية الخاصة للعلوم والتكنولوجيا - IUST">
-                <img src="IUST.jpg" alt="شعار الجامعة الدولية IUST" class="small-logo">
-            </div>
+    <div id="root">
+        <div class="boot-loader">
+            <span class="boot-ring"></span>
+            <p>جارٍ تجهيز المنظم...</p>
         </div>
-    </header>
-
-    <main class="container">
-        <!-- بوابة تسجيل الدخول الإجبارية قبل فتح المنظم -->
-        <section id="login-gate" class="card login-gate-card">
-            <div class="login-gate-header">
-                <h2>🔐 تسجيل الدخول لبدء استخدام المنظم</h2>
-                <p>يرجى إدخال بياناتك الدراسية وحفظها للوصول إلى جداول الدراسة والمذاكرة.</p>
-            </div>
-            <form id="login-form" class="form-grid">
-                <input type="text" id="student-username" placeholder="اسم المستخدم" required>
-                <input type="email" id="student-email" placeholder="البريد الإلكتروني" required>
-                <input type="text" id="student-id" placeholder="الرقم الجامعي" required>
-
-                <!-- قائمة اختيار الكلية -->
-                <select id="student-college" required>
-                    <option value="" disabled selected>اختر الكلية...</option>
-                    <option value="الصيدلة">الصيدلة</option>
-                    <option value="طب الأسنان">طب الأسنان</option>
-                    <option value="الهندسة المعلوماتية">الهندسة المعلوماتية</option>
-                    <option value="هندسة الإتصالات">هندسة الإتصالات</option>
-                    <option value="هندسة مدنية">هندسة مدنية</option>
-                    <option value="هندسة معمارية">هندسة معمارية</option>
-                    <option value="تصميم داخلي و ديكور">تصميم داخلي و ديكور</option>
-                    <option value="إدارة الأعمال">إدارة الأعمال</option>
-                </select>
-
-                <!-- قائمة اختيار السنة الدراسية من 1 إلى 5 -->
-                <select id="student-year" required>
-                    <option value="" disabled selected>اختر السنة الدراسية...</option>
-                    <option value="1">السنة 1</option>
-                    <option value="2">السنة 2</option>
-                    <option value="3">السنة 3</option>
-                    <option value="4">السنة 4</option>
-                    <option value="5">السنة 5</option>
-                </select>
-
-                <button type="submit" class="btn-primary">حفظ والدخول إلى المنظم</button>
-            </form>
-        </section>
-
-        <!-- المحتوى الرئيسي للمنظم (مقفل حتى إتمام تسجيل الدخول) -->
-        <div id="planner-workspace" class="hidden">
-            <div id="student-banner" class="student-banner"></div>
-
-            <h1 class="main-title">📚 منظم جدول دراسي (Med~Final~Study)</h1>
-
-            <!-- القسم الأول: جدول الدراسة -->
-            <section class="card">
-                <h2>📅 جدول الدراسة</h2>
-                <form id="exam-form" class="form-grid">
-                    <input type="text" id="exam-subject" placeholder="اسم المادة" required>
-                    <input type="date" id="exam-date" required>
-                    <input type="time" id="exam-time" required>
-                    <input type="number" id="exam-chapters" min="1" placeholder="عدد الشابترات" required>
-                    <input type="number" id="exam-slides" min="1" placeholder="مجموع السلايدات" required>
-                    <button type="submit" class="btn-primary">إضافة مادة</button>
-                </form>
-
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>المادة</th>
-                                <th>التاريخ والوقت</th>
-                                <th>الشابترات</th>
-                                <th>مجموع السلايدات</th>
-                                <th>متوسط السلايدات/شابتر</th>
-                                <th>الوقت المتبقي</th>
-                                <th>إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="exam-table-body"></tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- القسم الثاني: خطة وجدول المذاكرة مع المنبه وحساب الوقت وزر الإنتهاء -->
-            <section class="card">
-                <h2>📖 خطة وجدول المذاكرة</h2>
-                <form id="study-form" class="form-grid">
-                    <select id="study-subject" required>
-                        <option value="" disabled selected>اختر المادة من جدول الدراسة...</option>
-                    </select>
-                    <div class="input-group">
-                        <label for="study-start">تاريخ البداية:</label>
-                        <input type="date" id="study-start" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="study-end">تاريخ النهاية:</label>
-                        <input type="date" id="study-end" required>
-                    </div>
-                    <input type="number" id="study-hours" min="0.5" max="24" step="0.5" placeholder="ساعات الدراسة يومياً" required>
-                    <button type="submit" class="btn-secondary">إضافة للخطة</button>
-                </form>
-
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>المادة</th>
-                                <th>تاريخ البداية</th>
-                                <th>تاريخ النهاية</th>
-                                <th>عدد الأيام</th>
-                                <th>الهدف اليومي</th>
-                                <th>إجمالي الساعات</th>
-                                <th>المنبه وحساب الوقت</th>
-                                <th>تم الإنتهاء</th>
-                                <th>إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="study-table-body"></tbody>
-                    </table>
-                </div>
-            </section>
+    </div>
+    <noscript>
+        <div style="padding:40px;text-align:center;font-family:sans-serif">
+            <h2>يتطلب هذا الموقع تشغيل JavaScript</h2>
+            <p>يرجى تفعيل JavaScript في متصفحك لاستخدام منظم الجدول الدراسي.</p>
         </div>
-    </main>
+    </noscript>
 
-    <!-- الفوتر: معلومات منشئ الموقع في الأسفل والآية القرآنية -->
-    <footer class="quran-footer">
-        <div class="container">
-            <p class="ayah">﴿ وَأَن لَّيْسَ لِلْإِنسَانِ إِلَّا مَا سَعَىٰ * وَأَنَّ سَعْيَهُ سَوْفَ يُرَىٰ ﴾</p>
-            <span class="surah">سورة النجم - الآيتان 39-40</span>
+    <!-- React 18 (مستضاف محلياً — لا حاجة لأي اتصال بشبكات خارجية) -->
+    <script src="js/vendor/react.production.min.js"></script>
+    <script src="js/vendor/react-dom.production.min.js"></script>
 
-            <div class="creator-footer-box">
-                <h3>👨‍💻 معلومات منشئ الموقع</h3>
-                <div class="creator-grid">
-                    <div class="creator-item"><strong>الاسم:</strong> Eng: Ma'an Majed</div>
-                    <div class="creator-item"><strong>الجامعة:</strong> الجامعة الدولية الخاصة للعلوم والتكنولوجيا (IUST)</div>
-                    <div class="creator-item"><strong>الهاتف:</strong> <span dir="ltr">+963992328101</span></div>
-                    <div class="creator-item"><strong>البريد الإلكتروني:</strong> <a href="mailto:maanabokhashreef@gmail.com">maanabokhashreef@gmail.com</a></div>
-                    <div class="creator-item"><strong>Linkedin:</strong> ma'an abokhashreef</div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- التطبيق (JSX مجمّع مسبقاً) -->
+    <script src="js/app.icons.js"></script>
+    <script src="js/app.core.js"></script>
+    <script src="js/app.algo.js"></script>
+    <script src="js/app.components.js"></script>
+    <script src="js/app.screens1.js"></script>
+    <script src="js/app.screens2.js"></script>
+    <script src="js/app.screens3.js"></script>
+    <script src="js/app.js"></script>
 
-    <script src="script.js"></script>
+    <script>
+        ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App));
+    </script>
 </body>
 </html>
